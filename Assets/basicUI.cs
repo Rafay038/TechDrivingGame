@@ -24,6 +24,6 @@ public class basicUI : MonoBehaviour
             displayTutorial = false;
 
         if (!displayTutorial)
-            displayText.text = "Speed: " + CarController.carSpeed + "km/h";
+            displayText.text = "Speed: " + CarController.carSpeed + " km/h";
     }
 }
