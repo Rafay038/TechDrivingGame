@@ -23,7 +23,9 @@ public class basicUI : MonoBehaviour
         if (CarController.carSpeed != 0)
             displayTutorial = false;
 
-        if (!displayTutorial)
-            displayText.text = "Speed: " + CarController.carSpeed + " km/h";
+        if (!displayTutorial && CarController.carHealth > 0)
+            displayText.text = "Speed: " + CarController.carSpeed + " km/h" + "\nHealth: " + CarController.carHealth;
+        if (CarController.carHealth <= 0)
+            displayText.text = "Oh dear, you are dead!\nPress R to restart";
     }
 }

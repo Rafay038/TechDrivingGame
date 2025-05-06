@@ -19,6 +19,8 @@ public class CarController : MonoBehaviour
 
     private Vector3 _lastPosition;
 
+    [SerializeField] public static double carHealth = 1000;
+
     // Car parameters
     [SerializeField] private float motorForce, brakeForce, maxSteerAngle;
 
@@ -36,6 +38,7 @@ public class CarController : MonoBehaviour
     private void Start()
     {
         _lastPosition = playerCar.transform.position;
+        carHealth = 1000;
     }
 
     private void FixedUpdate()
@@ -43,7 +46,15 @@ public class CarController : MonoBehaviour
         // Variable to display on the speedometer
         carSpeed = Math.Truncate((playerCar.transform.position - _lastPosition).magnitude * 1000);
 
-        GetInput();
+        if (carHealth > 0)
+            GetInput();
+        else
+        {
+            verticalInput = 0;
+            horizontalInput = 0;
+            isBraking = false;
+        }
+
         HandleMotor();
         HandleSteering();
         UpdateWheels();
@@ -59,6 +70,13 @@ public class CarController : MonoBehaviour
     private void ApplyDownPressure()
     {
 
+    }
+
+    // This method gets entered whenever a collision (coming into contact with another rigidbody) occurs
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Simple function of damage based on the other collider's mass. Tweak and expand upon later.
+        carHealth -= (collision.rigidbody.mass * carSpeed)/5000;
     }
 
     // Simple wrapper function around basic Unity input system functions.
