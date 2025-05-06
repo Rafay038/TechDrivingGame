@@ -20,7 +20,7 @@ public class basicUI : MonoBehaviour
     void Update()
     {
         // Stop displaying the tutorial text once the car starts moving
-        if (CarController.carSpeed != 0)
+        if (Input.GetAxis("Vertical") != 0)
             displayTutorial = false;
 
         if (!displayTutorial && CarController.carHealth > 0)
