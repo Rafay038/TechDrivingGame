@@ -11,3 +11,4 @@ UserSettings/
 *.vsconfig
 #
 *.csproj
+*.meta
