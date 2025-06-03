@@ -24,18 +24,12 @@ public class basicUI : MonoBehaviour
             displayTutorial = false;
 
         if (!displayTutorial && CarController.carHealth > 0)
-<<<<<<< Updated upstream
-            displayText.text = "Speed: " + CarController.carSpeed + " km/h" + "\nHealth: " + CarController.carHealth;
-        if (CarController.carHealth <= 0)
-            displayText.text = "Oh dear, you are dead!\nPress R to restart";
-=======
-            displayText.text = "Speed: " + CarController.carSpeed*10 + " km/h" + "\nHealth: " + Mathf.RoundToInt((float)CarController.carHealth) + "\nNitrus: " + CarController.nitrusValue;
+            displayText.text = "Speed: " + Mathf.RoundToInt(CarController.carSpeed*10) + " km/h" + "\nHealth: " + Mathf.RoundToInt((float)CarController.carHealth) + "\nNitrus: " + CarController.nitrusValue;
         displayText.text += "\nGear: " + CarController.gearNum;
 
         if (CarController.carHealth <= 0)
             displayText.text = "Oh dear, you are dead!\nPress R to restart";
         if (enableDebug && !displayTutorial)
             displayText.text += "\nPower: " + CarController.totalPower + "\nengineRPM: " + CarController.engineRPM;
->>>>>>> Stashed changes
     }
 }

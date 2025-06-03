@@ -16,11 +16,8 @@ public class CarController : MonoBehaviour
     private float horizontalInput, verticalInput;
     private float currentSteerAngle, currentbrakeForce;
     private bool isBraking;
-<<<<<<< Updated upstream
-=======
     private bool isBoosting;
     public static bool isOnTheGround;
->>>>>>> Stashed changes
 
     public static Transform carPosition;
     public static float carSpeed;
@@ -35,15 +32,6 @@ public class CarController : MonoBehaviour
     [SerializeField] private float[] gearChangeSpeed;
     private float radius = 0.6f;
 
-<<<<<<< Updated upstream
-    private Vector3 _lastPosition;
-
-    [SerializeField] public static double carHealth = 1000;
-
-    // Car parameters
-    [SerializeField] private float motorForce, brakeForce, maxSteerAngle;
-
-=======
     public static float nitrusValue;
     [SerializeField] public static float nitrusValueMax;
     [SerializeField] private float nitrusForce;
@@ -86,7 +74,6 @@ public class CarController : MonoBehaviour
     // Car parameters
     [SerializeField] private float motorForce, brakeForce, maxSteerAngle;
 
->>>>>>> Stashed changes
     // Wheel Colliders
     [SerializeField] private WheelCollider frontLeftWheelCollider, frontRightWheelCollider;
     [SerializeField] private WheelCollider rearLeftWheelCollider, rearRightWheelCollider;
@@ -251,14 +238,9 @@ public class CarController : MonoBehaviour
     // This method gets entered whenever a collision (coming into contact with another rigidbody) occurs
     private void OnCollisionEnter(Collision collision)
     {
-<<<<<<< Updated upstream
-        // Simple function of damage based on the other collider's mass. Tweak and expand upon later.
-        carHealth -= (collision.rigidbody.mass * carSpeed)/5000;
-=======
         if ( !(collision.collider.GetType() == typeof(TerrainCollider)))
             // Simple function of damage based on the other collider's mass. Tweak and expand upon later.
             carHealth -= (collision.rigidbody.mass * carSpeed)/5000;
->>>>>>> Stashed changes
     }
 
     // Simple wrapper function around basic Unity input system functions.
@@ -423,8 +405,6 @@ public class CarController : MonoBehaviour
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
     }
-<<<<<<< Updated upstream
-=======
 
     // Simple nitrus boosting function
     public void ActivateNitrus()
@@ -453,5 +433,4 @@ public class CarController : MonoBehaviour
         } 
         else return;
     }
->>>>>>> Stashed changes
 }
