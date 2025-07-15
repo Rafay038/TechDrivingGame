@@ -170,7 +170,7 @@ public class CarController : MonoBehaviour
         ShiftGear();
 
         // This should be moved to the input manager in due time
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.P) && isOnTheGround)
             isBoosting = true;
         else
             isBoosting = false;
@@ -431,6 +431,6 @@ public class CarController : MonoBehaviour
                 }
             }
         } 
-        else return;
-    }
+        else return;
+    }
 }
